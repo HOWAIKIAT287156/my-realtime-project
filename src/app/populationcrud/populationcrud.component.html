@@ -1,0 +1,76 @@
+<div class="container mt-4" >
+    <div class="card">
+            <h1>Population</h1>
+    
+    <form>
+        <div class="form-group">
+          <label>State</label>
+          <input type="text" [(ngModel)]="state" [ngModelOptions]="{standalone: true}" class="form-control" id="stname" placeholder="Enter State">
+        </div>
+    
+        <div class="form-group">
+          <label>Date</label>
+          <input type="text" [(ngModel)]="date" [ngModelOptions]="{standalone: true}" class="form-control" id="course" placeholder="Enter Date">
+        </div>
+
+        <div class="form-group">
+            <label>Sex</label>
+            <input type="text" [(ngModel)]="sex" [ngModelOptions]="{standalone: true}" class="form-control" id="fee" placeholder="Enter Sex">
+          </div>
+
+          <div class="form-group">
+            <label>Age</label>
+            <input type="text" [(ngModel)]="age" [ngModelOptions]="{standalone: true}" class="form-control" id="stname" placeholder="Enter Age">
+          </div>
+      
+          <div class="form-group">
+            <label>Ethnicity</label>
+            <input type="text" [(ngModel)]="ethnicity" [ngModelOptions]="{standalone: true}" class="form-control" id="course" placeholder="Enter Ethnicity">
+          </div>
+  
+          <div class="form-group">
+              <label>Population</label>
+              <input type="text" [(ngModel)]="population" [ngModelOptions]="{standalone: true}" class="form-control" id="fee" placeholder="Enter Population">
+            </div>
+
+
+    
+        <button type="submit" class="btn btn-primary mt-4" (click)="save()" >Save</button>
+       
+      </form>
+    </div>
+    
+  
+    
+        <div class="container mt-4" >
+            <h1>Population Table</h1>
+        <table class="table">
+            <thead>
+             <h1 *ngIf="!isResultLoaded">Loading.................</h1>      
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">State</th>
+                <th scope="col">Date</th>  
+                <th scope="col">Sex</th>
+                <th scope="col">Age</th>
+                <th scope="col">Ethnicity</th>  
+                <th scope="col">Population</th>  
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let PopulationItem of PopulationArray">
+                <td>{{PopulationItem.id  }}</td>
+                <td>{{PopulationItem.state }}</td>
+                <td>{{PopulationItem.date }}</td>
+                <td>{{PopulationItem.sex }}</td>
+                <td>{{PopulationItem.age }}</td>
+                <td>{{PopulationItem.ethnicity }}</td>
+                <td>{{PopulationItem.population }}</td>
+                <td>
+                  <button type="button" class="btn btn-success" (click)="setUpdate(PopulationItem)">Edit</button>
+                  <button type="button" class="btn btn-danger" (click)="setDelete(PopulationItem)">Delete</button>            
+                </td>
+              </tr>          
+            </tbody>
+          </table>
+        </div>
